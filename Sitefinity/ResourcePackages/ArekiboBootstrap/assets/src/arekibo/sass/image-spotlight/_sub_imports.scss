@@ -1,0 +1,49 @@
+$content-over-image: false;
+$image-zoom-effect: false;
+$hover-overlay: false;
+$image-overlay: false;
+$labels: false;
+$spotlight-overlay: false;
+$video-spot: false;
+$horizontal: false;
+$spotlight-minimal: false;
+$color-border-bottom: false;
+$fixed-lines: false;
+$clip: false;
+$spot-overlaid: false;
+/*Based on vairables*/
+
+/*Styles for .content-over-image*/
+@import "structure_content-over-image";
+@import "skin_content-over-image";
+
+/*Styles for .image-zoom-effect*/
+@import "structure_image_zoom_effect";
+@import "skin_image_zoom_effect";
+
+/*Styles for .hover-overlay*/
+@import "structure_hover-overlay";
+@import "skin_hover-overlay";
+/*Styles for .image-overlay*/
+@import "structure_image-overlay";
+@import "skin_image-overlay";
+/*Styles for .labels*/
+@import "structure_labels";
+@import "skin_labels";
+/*Styles for .spotlight-overlay*/
+@import "structure_spotlight-overlay";
+@import "skin_spotlight-overlay";
+/*Styles for .video-spot*/
+@import "structure_video-spot";
+/*Styles for .horizontal*/
+@import "structure_horizontal";
+/*Styles for .spotlight-minimal*/
+@import "structure_minimal";
+/*Styles for .color-border-bottom*/
+@import "skin_border-bottom";
+/*Styles for .fixed-lines*/
+@import "skin_fixed-lines";
+/*Styles for .clip*/
+@import "clip";
+/*Styles for .spotlight-overlaid*/
+@import "spotlight-overlaid";

@@ -1,0 +1,13 @@
+.spotlight.content-over-image {
+  .spot-content {
+    p,
+    .spot-title {
+      color: $white;
+    }
+    a {
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}

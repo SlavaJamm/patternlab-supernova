@@ -1,0 +1,13 @@
+.spotlight.video-spot {
+  .image-wrapper {
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+  .overlay-text-box,
+  .overlay-icon-box,
+  .overlay-box {
+    display: none;
+  }
+}

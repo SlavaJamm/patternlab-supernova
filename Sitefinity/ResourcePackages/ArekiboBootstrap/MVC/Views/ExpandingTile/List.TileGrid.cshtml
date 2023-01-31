@@ -1,0 +1,49 @@
+﻿@model Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentListViewModel
+@using Telerik.Sitefinity.Modules.Libraries
+@using Arekibo.Neptune.Widgets.Code
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers
+@using Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Helpers
+@{ 
+    int itemsPerRow = 2;
+    if (Model.Items.FirstOrDefault().ParentItem().Fields.ItemsPerRow != null) {
+        int.TryParse(Model.Items.FirstOrDefault().ParentItem().Fields.ItemsPerRow.ToString(), out itemsPerRow);
+    }
+    double rowCount = Model.Items.Count() / itemsPerRow;
+    int rows = (int)Math.Ceiling(rowCount);
+}
+    <div id="item-group" class="panel-group">
+        @for (int i = 0; i < rows; i++)
+        {
+            int skip = i * itemsPerRow;
+        <div class="row group panel">
+            @foreach (var item in Model.Items.Skip(skip).Take(itemsPerRow))
+            {
+                <div class="col-sm-@((int)Math.Ceiling((double)(12/itemsPerRow))) col-12">
+                    <a id="i-@item.Fields.Id" class="item collapsed" role="button" data-toggle="collapse"
+                       href="#item-@item.Fields.Id"
+                       aria-expanded="false" aria-controls="item-@item.Fields.Id">
+                        <div class="image">
+                            <div>
+                                <img data-src="@MediaContentExtensions.ResolveMediaUrl(item.Fields.TileImage.DataItem)" class="lazyload"
+                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+                            </div>
+                        </div>
+                        <div class="item-body">
+                            @item.Fields.Title
+                            @Html.Raw(item.Fields.Summary)
+                        </div>
+                    </a>
+                </div>
+            }
+            @foreach (var item in Model.Items.Skip(skip).Take(itemsPerRow))
+            {
+                <div class="col-sm-12 collapse details" id="item-@item.Fields.Id" data-parent="#item-group" aria-expanded="false" role="tabpanel">
+                    <div class="box">
+                        @Html.Raw(item.Fields.Content)
+                    </div>
+                </div>
+            }
+        </div>
+        }
+     </div>
+       

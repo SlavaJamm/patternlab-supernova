@@ -1,0 +1,81 @@
+
+.owl-theme {
+  // Styling Next and Prev buttons
+  .owl-nav {
+    margin-top: 10px;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    [class*="owl-"] {
+      position: relative;
+      //color: $nav-color;
+      //font-size: $nav-font-size;
+      margin: $nav-margin;
+      padding: $nav-padding;
+      display: inline-block;
+      cursor: pointer;
+
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background-color: $deep-sky-blue;
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+        background: $white;
+        box-shadow: none;
+        text-decoration: none;
+      }
+    }
+    .owl-next {
+      span {
+        transform: rotate(180deg);
+      }
+    }
+    .disabled {
+      opacity: $nav-disabled-opacity;
+      cursor: default;
+    }
+  }
+  // Styling dots
+  .owl-nav.disabled + .owl-dots {
+    margin-top: 10px;
+  }
+  .owl-dots {
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    .owl-dot {
+      display: inline-block;
+      zoom: 1;
+      //display: inline;
+      span {
+        width: $dot-width;
+        height: $dot-height;
+        margin: $dot-margin;
+        background: $deep-sky-blue;
+        display: block;
+        -webkit-backface-visibility: visible;
+        transition: opacity 200ms ease;
+        border-radius: $dot-rounded;
+      }
+      &.active {
+        outline: none;
+        box-shadow: none;
+        span {
+          background: $dot-background-active;
+          border: 2px solid $deep-sky-blue;
+        }
+      }
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+        box-shadow: none;
+        span {
+          background: $dot-background-active;
+          border: 2px solid $deep-sky-blue;
+        }
+      }
+    }
+  }
+}

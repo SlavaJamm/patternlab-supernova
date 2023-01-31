@@ -1,0 +1,443 @@
+.campain-video-banner {
+  margin-bottom: 50px;
+  position: relative;
+  height: auto;
+  min-height: 622px;
+  max-height: 622px;
+  overflow: hidden;
+  -moz-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+  -o-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+  -webkit-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+  transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  @media screen and (max-width: $screen-xs) {
+    min-height: 471px;
+    max-height: 471px;
+    margin-bottom: 28px;
+  }
+  .info-box {
+    position: absolute;
+    top: 42%;
+    left: 15%;
+    z-index: 9;
+    @media screen and (max-width: $screen-xs) {
+      top: auto;
+      right: auto;
+      bottom: 37px;
+      left: 22px;
+    }
+  }
+  .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.1;
+  }
+  .module-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+    width: 100%;
+    min-height: 622px;
+    max-height: 622px;
+    -moz-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    -o-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    -webkit-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    background-color: transparent;
+    @media screen and (max-width: $screen-xs) {
+      min-height: 471px;
+      max-height: 471px;
+    }
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 111px;
+      position: absolute;
+      z-index: 5;
+      top: auto;
+      right: 0;
+      bottom: 1px;
+      left: 0;
+      margin: auto;
+      background: url("imgs/video-banner/video-bg-gradient.png") no-repeat center center;
+      background-size: cover;
+      opacity: 0;
+    }
+    > video.background {
+      position: absolute;
+      top: -40%;
+      width: auto;
+      min-width: 150%;
+      height: auto;
+      min-height: 150%;
+      opacity: 0.8;
+      -moz-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      -o-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      -webkit-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    }
+    a.video {
+      display: inline-block;
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-35px, -35px, 0);
+      background: url("imgs/video-banner/video-play.svg") no-repeat center;
+      height: 70px;
+      width: 70px;
+      color: $white;
+      opacity: 1;
+      -moz-transition: all 0.3s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      -o-transition: all 0.3s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      -webkit-transition: all 0.3s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      transition: all 0.3s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      @media screen and (max-width: $screen-xs) {
+        top: 98px;
+      }
+      span {
+        display: none;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .video-full {
+      position: relative;
+      width: 100%;
+      max-width: 940px;
+      height: 0;
+      margin: 0 auto;
+      padding: 27px 0 0;
+      opacity: 0;
+      filter: drop-shadow(0 1px 20px rgba(0, 0, 0, 0.4));
+      -moz-transition: opacity 2s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      -o-transition: opacity 2s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      -webkit-transition: opacity 2s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      transition: opacity 2s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+      > video {
+        width: 100%;
+        @media screen and (max-width: $screen-xs) {
+          margin-top: 100px;
+          margin-bottom: 59px;
+        }
+      }
+    }
+  }
+  /*video {
+    display: inline-block;
+    vertical-align: baseline;
+  }*/
+  #closeVideo {
+    position: absolute;
+    z-index: 15;
+    top: 26px;
+    right: -69px;
+    height: 47px;
+    width: 47px;
+    display: block;
+    border: 1px solid white;
+    border-radius: 50%;
+    background: transparent url("imgs/video-banner/video-close.svg") no-repeat center;
+    background-size: 21px;
+    opacity: 0;
+    visibility: hidden;
+    -moz-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    -o-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    -webkit-transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    transition: all 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    @media screen and (max-width: $screen-xs) {
+      right: 15px;
+      left: auto;
+    }
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 15;
+    width: 100%;
+    padding: 0;
+    -moz-transition: opacity 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    -o-transition: opacity 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    -webkit-transition: opacity 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    transition: opacity 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95);
+    @media screen and (max-width: $screen-xs) {
+      padding: 0 20px;
+    }
+    #playpause {
+      display: block;
+      height: 24px;
+      width: 30px;
+      margin: 15px 34px 30px 0;
+      background: url("imgs/video-banner/video-pause.svg") no-repeat center;
+      &.paused {
+        background: transparent url("imgs/video-banner/video-play-2.svg") no-repeat center;
+      }
+    }
+    .timeline {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      cursor: pointer;
+      margin: -12px 0 0;
+      span {
+        &.bg {
+          height: 15px;
+          width: 100%;
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 7px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: white;
+            pointer-events: none;
+          }
+        }
+        &.control {
+          display: block;
+          height: 14px;
+          width: 14px;
+          background-color: #0076b7;
+          border: 1px solid white;
+          border-radius: 50%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+    #fullscreen {
+      display: block;
+      height: 24px;
+      width: 34px;
+      margin: 10px 0 25px 32px;
+      background: transparent url("imgs/video-banner/video-full-screen.svg") no-repeat center;
+    }
+  }
+  &.video-player-active {
+    .controls {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: initial;
+      transition: none;
+    }
+    .module-video {
+      &:after {
+        opacity: 1;
+      }
+      .video-full {
+        height: auto !important;
+        opacity: 1 !important;
+        z-index: 15 !important;
+      }
+    }
+    video.background,
+    .info-box,
+    .scroll,
+    .spark-full,
+    a.video {
+      opacity: 0 !important;
+    }
+    #closeVideo {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+.banner-campaign {
+  background-color: transparent;
+  .banner-content {
+    position: relative;
+    min-height: inherit;
+    .info-box {
+      display: block;
+      margin: auto;
+      position: absolute;
+      top: auto;
+      right: auto;
+      bottom: 50px;
+      left: 15px;
+      z-index: 1;
+      @media screen and (max-width: $screen-xs) {
+        top: auto;
+        bottom: 37px;
+        left: 22px;
+      }
+    }
+  }
+  .scroll {
+    display: none;
+    left: 818px;
+    bottom: -580px;
+    position: absolute;
+    color: $white;
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    font-size: 1.4rem;
+    z-index: 5;
+    @media screen and (max-width: $screen-xs) {
+      display: none;
+    }
+    @media screen and (max-width: 1200px) and (min-width: 768px) {
+      left: 618px;
+    }
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 1px;
+      background-color: #ffffff;
+      top: 0;
+      bottom: auto;
+      left: auto;
+      right: -30px;
+    }
+    &:before {
+      width: 3px;
+      height: 15px;
+      right: -31px;
+    }
+    &:after {
+      height: 60px;
+      opacity: 0.9;
+    }
+  }
+  .sparking-wrapper .sparking-inner-wrapper .spark-full {
+    top: 400px;
+    left: 750px;
+    @media screen and (max-width: $screen-xs) {
+      left: 40px;
+      top: 250px;
+    }
+    @media screen and (max-width: $screen-xs) and (orientation: landscape)  {
+      left: 300px;
+    }
+    @media screen and (max-width: 1200px) and (min-width: 768px) {
+      left: 550px;
+    }
+  }
+  .banner-content .info-box {
+    width: 340px;
+    height: 310px;
+    min-height: 310px;
+    z-index: 9;
+    @media screen and (max-width: $screen-xs) {
+      width: 280px;
+      height: 221px;
+      min-height: 221px;
+    }
+  }
+}
+.info-box {
+  background-color: rgba(0, 117, 176, 0.9);
+  padding: 20px 30px;
+  position: relative;
+  &:after {
+    content: "";
+    width: 100%;
+    height: 15px;
+    opacity: 0.9;
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: -13px;
+    left: 0;
+    display: block;
+    margin: auto;
+    background: url("imgs/video-banner/blue-shape-thin.png") no-repeat center center;
+    background-size: cover;
+  }
+  h2 {
+    color: $white;
+    @include x-rem(font-size, 12px);
+    line-height: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    margin: 0 0 16px;
+    padding: 0 0 14px;
+    @media screen and (max-width: $screen-xs) {
+      padding-bottom: 0;
+      margin-bottom: 10px;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: auto;
+      right: auto;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 1px;
+      background-color: #4d9cc3;
+      @media screen and (max-width: $screen-xs) {
+        opacity: 0;
+      }
+    }
+  }
+  p {
+    color: $white;
+    @include x-rem(font-size, 32px);
+    line-height: 38px;
+    margin-bottom: 40px;
+    @media screen and (max-width: $screen-xs) {
+      margin-bottom: 23px;
+      @include x-rem(font-size, 26px);
+      line-height: 30px;
+    }
+  }
+  a,
+  span {
+    @include x-rem(font-size, 16px);
+    font-weight: 700;
+    display: inline-block;
+    vertical-align: middle;
+    color: $white;
+    &.btn-styled {
+      width: 167px;
+      border-radius: 50px;
+      background-color: $white;
+      color: #098900;
+      position: relative;
+      padding: 12px 10px 12px 30px;
+      text-transform: capitalize;
+      @media screen and (max-width: $screen-xs) {
+        padding: 8px 10px 8px 45px;
+        width: auto;
+      }
+    }
+    &.btn-link {
+      margin-left: 15px;
+      padding-left: 0;
+      padding-right: 0;
+      font-weight: normal;
+    }
+  }
+}

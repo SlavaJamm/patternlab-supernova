@@ -1,0 +1,23 @@
+@model Telerik.Sitefinity.Frontend.Mvc.Models.ContentDetailsViewModel
+
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+@using Telerik.Sitefinity.Web.DataResolving;
+@{
+    string pressUrl = Model.Item.DefaultUrl.Replace(Model.Item.Fields.ItemDefaultUrl, "");
+}
+<div class="row">
+    <div class="col-6">
+        <p><span class="smaller-text">@Model.Item.GetDateTime("PublicationDate", "d MMMM, yyyy")</span></p>
+    </div>
+    <div class="col-6">
+        <p><a href="@pressUrl" class="back-link d-inline-block d-sm-none">Back</a></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <article id="article" class="standard-content">
+            <h1>@Model.Item.Fields.Title</h1>
+            @Html.HtmlSanitize((string)Model.Item.Fields.Content)
+        </article>
+    </div>
+</div>

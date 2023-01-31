@@ -1,0 +1,44 @@
+a.spotlight {
+  color: $dark-gray;
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    .spot-content {
+      .spot-title {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.spotlight {
+  background-color: $white;
+  .spot-content {
+    .spot-label {
+      font-size: 0.75rem;
+      line-height: 16px;
+      font-weight: 700;
+      > * {
+        color: inherit;
+      }
+    }
+    .spot-title {
+      font-size: 1rem;
+      line-height: 22px;
+      font-weight: 700;
+    }
+    p {
+      font-size: 0.875rem;
+      line-height: 21px;
+    }
+  }
+  a {
+    color: inherit;
+    &:hover,
+    &:focus,
+    &:active{
+      color: inherit;
+    }
+  }
+}

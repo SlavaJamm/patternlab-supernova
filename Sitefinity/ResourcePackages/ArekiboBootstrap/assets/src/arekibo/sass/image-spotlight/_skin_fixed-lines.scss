@@ -1,0 +1,10 @@
+.spotlight.fixed-lines {
+  .spot-content {
+    .spot-title {
+      @include fixLines(2, 22px);
+    }
+    p {
+      @include fixLines(4, 21px);
+    }
+  }
+}

@@ -1,0 +1,84 @@
+.banner-dav {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-bottom: 50px;
+  .wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    @media screen and (max-width: $screen-xs) {
+      position: relative;
+    }
+  }
+  div {
+    div {
+      div {
+        position: absolute;
+        margin-left: 40px;
+        width: 430px;
+        @media screen and (max-width: $screen-xs) {
+          position: relative;
+          margin-top: 0;
+          width: 100%;
+          padding-bottom: 40px;
+          margin-left: 0;
+          padding-left: 15px;
+        }
+        h2 {
+          margin: 0.67em 0;
+          @media screen and (max-width: $screen-xs) {
+            padding-top: 20px;
+            margin-top: 0;
+            padding-left: 0;
+            padding-right: 15px;
+          }
+        }
+        p {
+          padding-right: 70px;
+          @media screen and (max-width: $screen-xs) {
+            padding-left: 0;
+            padding-right: 15px;
+          }
+          a {
+            margin-top: 50px;
+            min-width: 135px;
+            @media screen and (max-width: $screen-xs) {
+              margin-top: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+  div:nth-of-type(2) {
+    p {
+      width: 784px;
+      position: relative;
+      bottom: 0;
+      @media screen and (max-width: $screen-xs) {
+        width: 100%;
+      }
+      span {
+        @media screen and (max-width: $screen-xs) {
+          display: block;
+        }
+      }
+    }
+  }
+  picture {
+    @media screen and (max-width: $screen-xs) {
+      position: relative;
+      display: block;
+    }
+    img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+  }
+}

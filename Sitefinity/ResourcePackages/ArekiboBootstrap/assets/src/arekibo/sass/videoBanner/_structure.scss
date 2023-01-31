@@ -1,0 +1,60 @@
+.video-banner {
+  position: relative;
+  height: 434px;
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+  }
+
+  .video-container {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    video {
+      position: absolute;
+      display: block;
+      width: auto;
+      height: auto;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .poster {
+      z-index: 0;
+    }
+  }
+  .content-box-wrapper {
+    position: relative;
+    .content-box {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      bottom: auto;
+      left: 0;
+      margin: auto;
+      display: block;
+      z-index: 2;
+      max-width: 600px;
+      padding: 30px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.3);
+      @media screen and (max-width: $screen-xs) {
+        padding: 15px;
+        top: 15px;
+        max-width: calc(100% - 30px);
+      }
+      * {
+        color: $white;
+      }
+    }
+  }
+}
+
+@import "video-pop";

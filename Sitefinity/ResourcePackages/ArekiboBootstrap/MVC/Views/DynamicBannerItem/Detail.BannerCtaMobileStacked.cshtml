@@ -1,0 +1,62 @@
+@model Telerik.Sitefinity.Frontend.Mvc.Models.ContentDetailsViewModel
+@using Telerik.Sitefinity.Modules.Libraries
+@{
+
+    var linkUrl = "";
+
+    var extString = "false";
+    if (Model.Item.Fields.UseExternalLink)
+    {
+        extString = "true";
+    }
+    else
+    {
+        extString = "false";
+
+    }
+    bool isExt = bool.Parse(extString);
+    if (isExt)
+    {
+        if (Model.Item.Fields.ExternalUrl != null)
+        {
+            linkUrl = Model.Item.Fields.ExternalUrl.ToString();
+        }
+    }
+    else
+    {
+        if (Model.Item.Fields.LinkedPage != null)
+        {
+            linkUrl = Model.Item.Fields.LinkedPage.DefaultUrl.ToString();
+        }
+    }
+    var epString = "false";
+    if (Model.Item.Fields.EnablePrimaryAction)
+    {
+        epString = "true";
+    }
+    else
+    {
+        epString = "false";
+    }
+    bool enableAction = bool.Parse(epString);
+}
+<picture>
+    <!--[if IE 9]>
+    <video style="display: none;"><![endif]-->
+    <source srcset="@MediaContentExtensions.ResolveMediaUrl(Model.Item.Fields.DesktopImage.DataItem)" media="(min-width: 641px)" />
+    <source srcset="@MediaContentExtensions.ResolveMediaUrl(Model.Item.Fields.MobileImage.DataItem)" media="(max-width: 641px)" />
+    <!--[if IE 9]></video><![endif]-->
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Woman stands with hand in pocket" class="lazyload">
+</picture>
+<div class="wrapper">
+    <div class="container">
+        <div>
+            <h2>@Model.Item.Fields.Title</h2>
+            <p>@Model.Item.Fields.Description</p>
+            @if (enableAction)
+            {
+                <p><a class="btn btn-primary" href="@linkUrl">@Model.Item.Fields.LinkText</a></p>
+            }
+        </div>
+    </div>
+</div>

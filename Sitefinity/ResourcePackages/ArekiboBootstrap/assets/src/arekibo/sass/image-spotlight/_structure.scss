@@ -1,0 +1,56 @@
+a.spotlight {
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+.spotlight {
+  display: block;
+  margin: 0 0 15px;
+  .image-wrapper {
+    display: block;
+    position: relative;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .spot-content {
+    padding: 10px 10px;
+    .spot-label {
+      display: inline-block;
+      // if label has icons, we can remove it label tag doesn't have icons
+      > * {
+        margin-right: 5px;
+      }
+    }
+    .spot-title {
+      display: block;
+      margin: 10px 0;
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    p {
+      display: block;
+      margin: 10px 0 0;
+      + .spot-label {
+        margin-top: 10px;
+      }
+    }
+  }
+  a {
+    &:hover,
+    &:active {
+      outline: none;
+    }
+  }
+}
+
+@import "sub_imports";

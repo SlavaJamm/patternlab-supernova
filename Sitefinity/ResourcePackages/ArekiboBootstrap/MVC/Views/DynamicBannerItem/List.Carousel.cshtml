@@ -1,0 +1,105 @@
+﻿@model Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentListViewModel
+@using Telerik.Sitefinity.Modules.Libraries
+@using Telerik.Sitefinity.RelatedData;
+@using Telerik.Sitefinity.DynamicModules.Model;
+@{
+    var controlId = "carousel-" + Guid.NewGuid();
+    var indicatorIndex = 0;
+    var slideIndex = 0;
+}
+<div id="@controlId" class="carousel-banner carousel slide search carousel-fade" data-ride="carousel">
+    <!-- Controls -->
+    <div class="container">
+        <a class="left arrow-control d-none d-sm-block" href="#@controlId" role="button" data-slide="prev">
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right arrow-control d-none d-sm-block" href="#@controlId" role="button" data-slide="next">
+            <span class="sr-only">Next</span>
+        </a>
+        <a class="play-control play-pause active" href="#@controlId" role="button"><span class="sr-only">Play</span><span class="glyphicon glyphicon-play"></span></a>
+        <a class="pause-control play-pause" href="#@controlId" role="button"><span class="sr-only">Pause</span><span class="glyphicon glyphicon-pause"></span></a>
+    </div>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner centered-image" role="listbox">
+        @foreach (var item in Model.Items)
+        {
+            var linkUrl = "";
+            string cssClass = "";
+            if(slideIndex == 0)
+            {
+                cssClass = "active";
+            }
+            var extString = "false";
+            if (item.Fields.UseExternalLink)
+            {
+                extString = "true";
+            }
+            else
+            {
+                extString = "false";
+
+            }
+            bool isExt = bool.Parse(extString);
+            if (isExt)
+            {
+                if (item.Fields.ExternalUrl != null)
+                {
+                    linkUrl = item.Fields.ExternalUrl.ToString();
+                }
+            } else
+            {
+                if (item.Fields.LinkedPage != null)
+                {
+                    linkUrl = item.Fields.LinkedPage.DefaultUrl.ToString();
+                }
+            }
+            var epString = "false";
+            if (item.Fields.EnablePrimaryAction)
+            {
+                epString = "true";
+            }
+            else
+            {
+                epString = "false";
+            }
+            bool enableAction = bool.Parse(epString);
+            <div class="carousel-item @cssClass">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <span class="h2 h-style">@item.Fields.Title</span>
+                        <p>@item.Fields.Description</p>
+                        @if (enableAction)
+                        {
+                        <a class="btn btn-primary" href="@linkUrl">@item.Fields.LinkText</a>
+                        }
+                    </div>
+                </div>
+                <picture>
+                    <!--[if IE 9]>
+                <video style="display: none;"><![endif]-->
+                    <source srcset="@MediaContentExtensions.ResolveMediaUrl(item.Fields.DesktopImage.DataItem)" data-srcset="@MediaContentExtensions.ResolveMediaUrl(item.Fields.DesktopImage.DataItem)" media="(min-width: 641px)">
+                    <source srcset="@MediaContentExtensions.ResolveMediaUrl(item.Fields.MobileImage.DataItem)" data-srcset="@MediaContentExtensions.ResolveMediaUrl(item.Fields.MobileImage.DataItem)" media="(max-width: 640px)">
+                    <!--[if IE 9]></video><![endif]-->
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="carousel banner image" class="lazyload">
+                </picture>
+            </div>
+            slideIndex++;
+        }
+    </div>
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        @foreach (var item in Model.Items)
+        {
+            var cssClass = "";
+            if (indicatorIndex == 0)
+            {
+                cssClass = "active";
+            }
+            <li class="@cssClass">
+                <button data-target="#@controlId" data-slide-to="@indicatorIndex" tabindex="0"><span class="sr-only">Slide @(indicatorIndex+1)</span></button>
+            </li>
+            indicatorIndex++;
+        }
+    </ol>
+    <div aria-live="polite" aria-atomic="true" class="d-none">Item 1 of @Model.Items.Count()</div>
+</div>

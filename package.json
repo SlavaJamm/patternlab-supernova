@@ -1,0 +1,25 @@
+{
+  "name": "patternlab-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pl:build": "patternlab build --config ./patternlab-config.json",
+    "pl:help": "patternlab --help",
+    "pl:install": "patternlab install --config ./patternlab-config.json",
+    "pl:serve": "patternlab serve --config ./patternlab-config.json",
+    "pl:version": "patternlab --version",
+    "start": "npm run pl:serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@pattern-lab/cli": "^5.17.0",
+    "@pattern-lab/core": "^5.17.0",
+    "@pattern-lab/engine-handlebars": "^5.16.4",
+    "@pattern-lab/starterkit-handlebars-vanilla": "^1.4.3",
+    "@pattern-lab/uikit-workshop": "^5.17.0"
+  }
+}

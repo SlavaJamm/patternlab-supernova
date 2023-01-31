@@ -1,0 +1,193 @@
+﻿@model Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Models.DynamicContentListViewModel
+@using Telerik.Sitefinity.Modules.Libraries
+@using Arekibo.Neptune.Widgets.Code
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers
+@using Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Helpers
+@{
+    var itemIndex = 0;
+}
+@Html.Script("/ResourcePackages/ArekiboBootstrap/assets/dist/js/vue.min.js", "inline-editing", true)
+@Html.Script("/ResourcePackages/ArekiboBootstrap/assets/dist/js/shuffle.js", "inline-editing", true)
+<script>
+    /* exported page_ready_product_carousel */
+    var pr = setInterval(function () {
+        if (window.jQuery) {
+            page_ready_spotlight_filter();
+            clearInterval(pr);
+        }
+    }, 50);
+    /* globals Vue FilterComponent */
+    /* exported screen_change_spotlight_filter page_ready_spotlight_filter */
+    //code for screen change event goes here
+    //this function will be called from global layout
+    function screen_change_spotlight_filter() {
+        //do nothing for now
+        //use this function if you want to do something on screen change event
+    }
+
+    function page_ready_spotlight_filter() {
+        if ($('#spotlight-filter').length) {
+            new Vue({
+                el: "#spotlight-filter",
+                name: "filterAppSpotlightFilter",
+                components: {
+                    spotlightFilter: FilterComponent
+                }
+            });
+        }
+    }
+</script>
+<h2>@Model.Items.FirstOrDefault().ParentItem().Fields.Title</h2>
+
+<script type="text/javascript">
+    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+        document.write('<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.js?features=default%2CString.prototype.includes%2CArray.prototype.includes"><\/script>');
+</script>
+<script type="text/javascript">
+    var categorisedListItems = [
+
+@foreach (var item in Model.Items)
+{
+    var catIndex = 0;
+    var linkUrl = "";
+    bool enableAction = Utilities.GetBoolValue(item.Fields.EnablePrimaryAction);
+    if (enableAction) {
+        linkUrl = Utilities.ViewLinkUrl(item.Fields.LinkedPage.DefaultUrl, item.Fields.ExternalUrl, item.Fields.UseExternalLink);
+    }
+    if(itemIndex != 0)
+    {
+        @Html.Raw(",")
+    }
+    <text>{
+            "Title": "@item.Fields.Summary",
+            "Image": "@MediaContentExtensions.ResolveMediaUrl(item.Fields.Image.DataItem)",
+            "Url": "@linkUrl",
+            "ButtonText": "@item.Fields.LinkText",
+            "CategoryList": [
+                @foreach(var cat in item.Fields.Category)
+                {
+                    if(catIndex == 0)
+                    {
+                        @Html.Raw("\"" + Utilities.GetTaxonTitle(cat) + "\"")
+                    } else
+                    {
+                        @Html.Raw(",\"" + Utilities.GetTaxonTitle(cat) + "\"")
+                    }
+                    catIndex++;
+                }
+            ],
+            "Blurb": "@item.Fields.Title"
+        }</text>
+    itemIndex++;
+}
+
+    ];
+</script>
+<script type="text/javascript">
+    var cats = [];
+    categorisedListItems.forEach(addCat);
+    function addCat(item, index) {
+        for (var i = 0; i < item.CategoryList.length; i++) {
+            if (cats.includes(item.CategoryList[i]) == false) {
+                cats.push(item.CategoryList[i]);
+            }
+        }
+    }
+    var filterCategories = { "PageCategories": cats };
+</script>
+<div id="spotlight-filter" class="spotlight-filter loading-app">
+    <spotlight-filter></spotlight-filter>
+</div>
+<script type="text/x-template" id="spotlightFilterTemplate">
+    <div class="vue-app-wrapper">
+        <div class="cat-list d-none d-sm-block">
+            <a href="#" class="badge badge-secondary" v-bind:class="{ active: category == currentCat }" v-for="category,index in filterCategories.PageCategories" v-on:click.stop.prevent="filterListItems(category)" v-html="category"></a>
+        </div>
+        <div class="filter d-block d-sm-none row">
+            <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Filter
+            </button>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <div>
+                        <a href="#" class="badge badge-secondary" v-bind:class="{ active: category == currentCat }" v-for="category,index in filterCategories.PageCategories" v-on:click.stop.prevent="filterListItems(category)" v-html="category"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="data shuffle-items row" v-bind:class="{ displayblock: isVisible }">
+            <div class="js-item col-sm-2 col-6" v-for="item,index in categorisedListItems" v-bind:data-groups='setAttribute(item.CategoryList)'>
+                <a class="spotlight content-over-image fixed-lines two-titles" v-bind:href="item.Url">
+                    <img v-bind:data-src="setImageSRC(item.Image)" alt="" class="lazyload"
+                         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                    <div class="spot-content ">
+                        <span class="spot-title" v-html="item.Title"></span>
+                        <span class="overlay-text-box" v-html="item.Blurb"></span>
+                        <span class="cta-styled" v-html="item.ButtonText"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+<script>
+    var FilterComponent = {
+        name: "spotlightFilter",
+        template: "#spotlightFilterTemplate",
+        props: {},
+        data: function () {
+            return {
+                categorisedListItems: window.categorisedListItems,
+                filterCategories: window.filterCategories,
+                defaultImage: "images/spotlight-filter/default.jpg",
+                objShuffle: null,
+                isVisible: false,
+                currentCat: null
+            }
+        },
+        methods: {
+            filterListItems: function (cat) {
+                if (this.currentCat == cat) {
+                    this.showAll();
+                    this.currentCat = null;
+                } else {
+                    this.currentCat = cat;
+                    this.objShuffle.filter(cat);
+                }
+            },
+            showAll: function () {
+                this.objShuffle.filter();
+            },
+            setAttribute: function (data) {
+                return JSON.stringify(data);
+            },
+            setImageSRC: function (src) {
+                if (src != "") {
+                    return src
+                } else {
+                    return this.defaultImage
+                }
+            }
+        },
+        mounted: function () {
+            var Shuffle = window.Shuffle;
+            this.objShuffle = new Shuffle(document.querySelector('.shuffle-items'), {
+                itemSelector: '.js-item',
+                sizer: '.my-sizer-element',
+                buffer: 1,
+                speed: 500
+            });
+            var _this = this;
+            setTimeout(function () {
+                _this.objShuffle.filter();
+                setTimeout(function () {
+                    _this.isVisible = true;
+                }, 500);
+            }, 500);
+            document.getElementById('spotlight-filter').classList.remove('loading-app');
+        },
+        created: function () {
+        }
+    };
+
+</script>

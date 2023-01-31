@@ -1,0 +1,255 @@
+.latest-tweets {
+  padding: 0 95px 0 15px;
+  position: relative;
+  min-height: 114px;
+  @media (max-width: $max-container) {
+    min-height: 211px;
+  }
+  @media screen and (max-width: $screen-xs) {
+    padding: 25px 15px 63px;
+  }
+  .play-pause {
+    position: absolute;
+    height: 31px;
+    width: 30px;
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 14px;
+      height: 16px;
+      padding: 0;
+    }
+    &.play-control {
+      top: 27px;
+      right: 21px;
+      @media screen and (max-width: $screen-xs) {
+        top: 10px !important;
+        right: 51px !important;
+      }
+    }
+    &.pause-control {
+      top: 63px;
+      right: 21px;
+      @media screen and (max-width: $screen-xs) {
+        top: 10px !important;
+        right: 14px !important;
+      }
+    }
+  }
+  .carousel-indicators {
+    position: absolute;
+    bottom: 0;
+    width: 15px;
+    height: 45px;
+    right: 67px;
+    top: 0;
+    left: auto;
+    margin: auto;
+    display: inline-block;
+    @media screen and (max-width: $screen-xs) {
+      width: 100%;
+      top: auto;
+      bottom: 4px;
+      right: 0;
+    }
+    li {
+      width: 12px;
+      height: 12px;
+      background-color: transparent;
+      color: $white;
+      border: none;
+      margin: 5px 1px;
+      &:first-child {
+        margin-top: 0;
+      }
+      @media screen and (max-width: $screen-xs) {
+        display: inline-block !important;
+        width: 15px;
+        height: 15px;
+        margin: 5px;
+      }
+      button {
+        @include carousel-indicator-button;
+        border: 1px solid $white;
+        background-color: transparent;
+        @media screen and (max-width: $screen-xs) {
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+    .active {
+      background-color: transparent;
+      button {
+        background-color: $white;
+      }
+    }
+  }
+  > span {
+    display: inline !important;
+    float: left;
+    font-size: 1.0625rem;
+    padding: 0 18px 0 6px;
+    &.bell-icon {
+      margin-top: 49px;
+      margin-left: 2px;
+      @media screen and (max-width: $screen-xs) {
+        margin-top: 3px !important;
+        padding: 0 5px 0 6px;
+      }
+    }
+  }
+  h3 {
+    display: inline !important;
+    float: left;
+    margin: 44px 0 0;
+    padding: 0;
+    @media screen and (max-width: $screen-xs) {
+      margin-top: 0 !important;
+    }
+  }
+  .carousel-inner {
+    padding-left: 0;
+    margin-bottom: 0;
+    @media screen and (max-width: $screen-xs) {
+      width: 100%;
+    }
+    .carousel-item {
+      width: 100%;
+      list-style: none;
+      min-height: 114px;
+      padding: 0 15px;
+      @media screen and (max-width: $screen-xs) {
+        padding: 0 7px;
+      }
+      .wrapper {
+        display: table;
+        width: 100%;
+        min-height: 114px;
+        .inner {
+          display: table-cell;
+          vertical-align: middle;
+          p {
+            margin: 0;
+          }
+        }
+      }
+      img {
+        height: 14px !important;
+        display: inline-block !important;
+        margin-left: 2px !important;
+      }
+      a {
+        &:focus {
+          box-shadow: 0 0 2px 2px $white;
+        }
+      }
+    }
+  }
+}
+/*For all version os internet explorer*/
+@media screen and (min-width: 0 \0
+) {
+  // Fade transition for carousel items
+  .carousel.latest-tweets .carousel-item {
+    left: 0 !important;
+    -webkit-transition: opacity 0.2s !important; /*adjust timing here */
+    -moz-transition: opacity 0.2s !important;
+    -o-transition: opacity 0.2s !important;
+    transition: opacity 0.2s !important;
+  }
+  /*Fade controls with items*/
+  .carousel.latest-tweets .carousel-item-next.carousel-item-left,
+  .carousel.latest-tweets .carousel-item-prev.carousel-item-right {
+    opacity: 1 !important;
+    z-index: 1 !important;
+  }
+  .carousel.latest-tweets .active.carousel-item-left,
+  .carousel.latest-tweets .active.carousel-item-right {
+    opacity: 0 !important;
+    z-index: 2 !important;
+  }
+}
+.carousel-inner.vertical {
+  height: 100%;
+}
+.carousel-inner.vertical > .carousel-item {
+  -webkit-transition: 0.6s ease-in-out top;
+  -o-transition: 0.6s ease-in-out top;
+  transition: 0.6s ease-in-out top;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .carousel-inner.vertical > .carousel-item {
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    -o-transition: -o-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000pt;
+    perspective: 1000pt;
+  }
+  .carousel-inner.vertical > .carousel-item.carousel-item-next,
+  .carousel-inner.vertical > .carousel-item.active.carousel-item-right {
+    top: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  .carousel-inner.vertical > .carousel-item.carousel-item-prev,
+  .carousel-inner.vertical > .carousel-item.active.carousel-item-left {
+    top: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  .carousel-inner.vertical > .carousel-item.carousel-item-next.carousel-item-left,
+  .carousel-inner.vertical > .carousel-item.carousel-item-prev.carousel-item-right,
+  .carousel-inner.vertical > .carousel-item.active {
+    top: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.carousel-inner.vertical > .active {
+  top: 0;
+}
+.carousel-inner.vertical > .carousel-item-next,
+.carousel-inner.vertical > .carousel-item-prev {
+  top: 0;
+  height: 100%;
+  width: auto;
+}
+.carousel-inner.vertical > .carousel-item-next {
+  left: 0;
+  top: 100%;
+}
+.carousel-inner.vertical > .carousel-item-prev {
+  left: 0;
+  top: -100%;
+}
+.carousel-inner.vertical > .carousel-item-next.carousel-item-left,
+.carousel-inner.vertical > .carousel-item-prev.carousel-item-right {
+  top: 0;
+}
+.carousel-inner.vertical > .active.carousel-item-left {
+  left: 0;
+  top: -100%;
+}
+.carousel-inner.vertical > .active.carousel-item-right {
+  left: 0;
+  top: 100%;
+}
+.tweets-carousel-wrapper {
+  visibility: hidden;
+  max-height: 1px;
+  overflow: hidden;
+  @media screen and (max-width: $screen-xs) {
+    width: 100%;
+  }
+  &.loaded {
+    visibility: visible;
+    max-height: none;
+  }
+}

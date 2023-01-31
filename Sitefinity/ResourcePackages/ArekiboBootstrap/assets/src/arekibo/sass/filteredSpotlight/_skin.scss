@@ -1,0 +1,128 @@
+/*If image spotlight is not included in the project then add the following import in the _plugins.scss file.
+ * @import "spotlight-filter/basic-spotlight";
+*/
+.filter {
+  text-align: center;
+  .card {
+    text-align: center;
+  }
+  button{
+    @media screen and (max-width: $screen-xs) {
+      background-color: $silver;
+      border: none;
+      border-radius: 8px 8px 0 0;
+      text-align: left;
+      position: relative;
+    }
+    &:hover,
+    &:focus,
+    &:active{
+      @media screen and (max-width: $screen-xs) {
+        background-color: $silver;
+        box-shadow: none;
+        outline: 0;
+      }
+    }
+    &:after{
+      @media screen and (max-width: $screen-xs) {
+        position: absolute;
+        content: "\2212";
+        right: 15px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 12px;
+        height: 24px;
+        @include x-rem(font-size, 18px);
+      }
+    }
+    &.collapsed{
+      @media screen and (max-width: $screen-xs) {
+        background-color: $silver;
+        border-radius: 8px;
+        &:after{
+          content: "\002b";
+        }
+      }
+    }
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+      background-color: $silver;
+    }
+    &:not(:disabled):not(.disabled):active:focus,
+    &:not(:disabled):not(.disabled).active:focus {
+      box-shadow: none;
+    }
+  }
+  .card-body{
+    @media screen and (max-width: $screen-xs) {
+      background-color: $silver;
+      border-radius: 0 0 8px 8px;
+      border: none;
+    }
+    .badge{
+      @media screen and (max-width: $screen-xs) {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+/* default styles so shuffle doesn't have to set them (it will if they're missing) */
+.cat-list {
+  border-radius: 10px;
+  text-align: center;
+  background-color: $white-smoke;
+  .badge {
+    &.active {
+      background-color: $deep-sky-blue !important;
+    }
+  }
+}
+
+.shuffle-items {
+  opacity: 0;
+  &.displayblock {
+    opacity: 1;
+  }
+}
+
+.spotlight.two-titles {
+  border-radius: 5px;
+  img {
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .spot-content {
+    .spot-title {
+      color: $white;
+    }
+    .overlay-text-box {
+      color: $white;
+    }
+  }
+  &:hover,
+  &:focus {
+    img {
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      -o-transform: scale(1.05);
+      transform: scale(1.05);
+    }
+    .spot-content {
+      color: $white;
+      .spot-title {
+        color: $white;
+        text-decoration: underline;
+      }
+      .overlay-text-box {
+        color: $white;
+      }
+    }
+  }
+}

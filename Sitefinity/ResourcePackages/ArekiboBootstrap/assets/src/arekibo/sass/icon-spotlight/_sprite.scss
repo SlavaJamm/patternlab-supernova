@@ -1,0 +1,213 @@
+/*Use these class with @extend i.e
+
+.sample-box {
+  @extend .svg-social_facebook
+  &:after {
+  @extend .svg-social_facebook
+  }
+}
+
+Where ever you want to use it, because its give benefit to easily add new OR remove icons from sprite
+just replace your svg sprite and modify these classes.
+
+*/
+.svg-aiport-club {
+  background: url("imgs/icon-spotlight/sprite.svg") 27.411167512690355% 17.261904761904763% no-repeat;
+  width: 32px;
+  height: 22px;
+}
+.svg-arrivals {
+  background: url("imgs/icon-spotlight/sprite.svg") 0 72.78481012658227% no-repeat;
+  width: 41px;
+  height: 32px;
+}
+.svg-by_bus {
+  background: url("imgs/icon-spotlight/sprite.svg") 0 33.54037267080745% no-repeat;
+  width: 51px;
+  height: 29px;
+}
+.svg-by_car {
+  background: url("imgs/icon-spotlight/sprite.svg") 0 17.575757575757574% no-repeat;
+  width: 54px;
+  height: 25px;
+}
+.svg-calendar-icon {
+  background: url("imgs/icon-spotlight/sprite.svg") 65.25821596244131% 75.28735632183908% no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.svg-check {
+  background: url("imgs/icon-spotlight/sprite.svg") 0 100% no-repeat;
+  width: 12px;
+  height: 8px;
+}
+.svg-chevron {
+  background: url("imgs/icon-spotlight/sprite.svg") 67.12328767123287% 16.76300578034682% no-repeat;
+  width: 10px;
+  height: 17px;
+}
+.svg-close {
+  background: url("imgs/icon-spotlight/sprite.svg") 51.42857142857143% 17.058823529411764% no-repeat;
+  width: 19px;
+  height: 20px;
+}
+.svg-departures {
+  background: url("imgs/icon-spotlight/sprite.svg") 43.61702127659574% 52.20125786163522% no-repeat;
+  width: 41px;
+  height: 31px;
+}
+.svg-down-chevron {
+  background: url("imgs/icon-spotlight/sprite.svg") 99.06542056074767% 93.33333333333333% no-repeat;
+  width: 15px;
+  height: 10px;
+}
+.svg-fast-track {
+  background: url("imgs/icon-spotlight/sprite.svg") 99.4949494949495% 38.78787878787879% no-repeat;
+  width: 31px;
+  height: 25px;
+}
+.svg-getintouch-email {
+  background: url("imgs/icon-spotlight/sprite.svg") 97.04433497536945% 86.58536585365853% no-repeat;
+  width: 26px;
+  height: 26px;
+}
+.svg-getintouch-phone {
+  background: url("imgs/icon-spotlight/sprite.svg") 63.54679802955665% 32.926829268292686% no-repeat;
+  width: 26px;
+  height: 26px;
+}
+.svg-getintouch-twitter {
+  background: url("imgs/icon-spotlight/sprite.svg") 84.23645320197045% 89.63414634146342% no-repeat;
+  width: 26px;
+  height: 26px;
+}
+.svg-info-maps {
+  background: url("imgs/icon-spotlight/sprite.svg") 62.43654822335025% 51.23456790123457% no-repeat;
+  width: 32px;
+  height: 28px;
+}
+.svg-link-arrow {
+  background: url("imgs/icon-spotlight/sprite.svg") 92.05607476635514% 95.45454545454545% no-repeat;
+  width: 15px;
+  height: 14px;
+}
+.svg-logo-white {
+  background: url("imgs/icon-spotlight/sprite.svg") 0 0 no-repeat;
+  width: 160px;
+  height: 29px;
+}
+.svg-lounges {
+  background: url("imgs/icon-spotlight/sprite.svg") 70.55837563451777% 93.0379746835443% no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.svg-menu-white {
+  background: url("imgs/icon-spotlight/sprite.svg") 99.4949494949495% 54.60122699386503% no-repeat;
+  width: 31px;
+  height: 27px;
+}
+.svg-newsletter-check {
+  background: url("imgs/icon-spotlight/sprite.svg") 97.04433497536945% 70.73170731707317% no-repeat;
+  width: 26px;
+  height: 26px;
+}
+.svg-platinum {
+  background: url("imgs/icon-spotlight/sprite.svg") 100% 20.253164556962027% no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.svg-plus {
+  background: url("imgs/icon-spotlight/sprite.svg") 65.25821596244131% 66.0919540229885% no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.svg-search {
+  background: url("imgs/icon-spotlight/sprite.svg") 41.54589371980676% 17.261904761904763% no-repeat;
+  width: 22px;
+  height: 22px;
+}
+.svg-search-white {
+  background: url("imgs/icon-spotlight/sprite.svg") 60.76555023923445% 17.058823529411764% no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.svg-services_airport_club {
+  background: url("imgs/icon-spotlight/sprite.svg") 47.36842105263158% 33.12883435582822% no-repeat;
+  width: 39px;
+  height: 27px;
+}
+.svg-services_airport_club-dark {
+  background: url("imgs/icon-spotlight/sprite.svg") 26.842105263157894% 33.12883435582822% no-repeat;
+  width: 39px;
+  height: 27px;
+}
+.svg-services_fast_track {
+  background: url("imgs/icon-spotlight/sprite.svg") 21.80851063829787% 52.53164556962025% no-repeat;
+  width: 41px;
+  height: 32px;
+}
+.svg-services_fast_track-dark {
+  background: url("imgs/icon-spotlight/sprite.svg") 0 52.53164556962025% no-repeat;
+  width: 41px;
+  height: 32px;
+}
+.svg-services_lounges {
+  background: url("imgs/icon-spotlight/sprite.svg") 83.33333333333333% 25.827814569536425% no-repeat;
+  width: 37px;
+  height: 39px;
+}
+.svg-services_lounges-dark {
+  background: url("imgs/icon-spotlight/sprite.svg") 83.33333333333333% 0 no-repeat;
+  width: 37px;
+  height: 39px;
+}
+.svg-services_parking {
+  background: url("imgs/icon-spotlight/sprite.svg") 20.918367346938776% 72.78481012658227% no-repeat;
+  width: 33px;
+  height: 32px;
+}
+.svg-services_parking-dark {
+  background: url("imgs/icon-spotlight/sprite.svg") 37.755102040816325% 72.78481012658227% no-repeat;
+  width: 33px;
+  height: 32px;
+}
+.svg-services_platinum_services {
+  background: url("imgs/icon-spotlight/sprite.svg") 54.31472081218274% 72.78481012658227% no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.svg-services_platinum_services-dark {
+  background: url("imgs/icon-spotlight/sprite.svg") 100% 0 no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.svg-social-facebook-white {
+  background: url("imgs/icon-spotlight/sprite.svg") 82.47422680412372% 50.32258064516129% no-repeat;
+  width: 35px;
+  height: 35px;
+}
+.svg-social-facebook-white-hover {
+  background: url("imgs/icon-spotlight/sprite.svg") 0 94.83870967741936% no-repeat;
+  width: 35px;
+  height: 35px;
+}
+.svg-social-instagram-white {
+  background: url("imgs/icon-spotlight/sprite.svg") 18.04123711340206% 94.83870967741936% no-repeat;
+  width: 35px;
+  height: 35px;
+}
+.svg-social-instagram-white-hover {
+  background: url("imgs/icon-spotlight/sprite.svg") 36.08247422680412% 94.83870967741936% no-repeat;
+  width: 35px;
+  height: 35px;
+}
+.svg-social-twitter-white {
+  background: url("imgs/icon-spotlight/sprite.svg") 82.05128205128206% 72.43589743589743% no-repeat;
+  width: 34px;
+  height: 34px;
+}
+.svg-social-twitter-white-hover {
+  background: url("imgs/icon-spotlight/sprite.svg") 53.84615384615385% 94.23076923076923% no-repeat;
+  width: 34px;
+  height: 34px;
+}

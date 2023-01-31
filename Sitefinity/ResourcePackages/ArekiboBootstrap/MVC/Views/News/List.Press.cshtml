@@ -1,0 +1,34 @@
+@model Telerik.Sitefinity.Frontend.Mvc.Models.ContentListViewModel
+
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+@using Telerik.Sitefinity.Modules.Pages;
+@using Telerik.Sitefinity.Web.DataResolving;
+<div class="row @Model.CssClass">
+    @foreach (var item in Model.Items)
+    {
+        var navigateUrl = HyperLinkHelpers.GetDetailPageUrl(item, ViewBag.DetailsPageId, ViewBag.OpenInSamePage, Model.UrlKeyPrefix);
+        <div class="col-sm-4">
+            <div class="spotlight fixed-lines">
+                <img data-src="@item.Fields.ListImage.Fields.MediaUrl" alt="" class=" lazyload"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+                <div class="spot-content ">
+                    <span class="spot-label">@item.GetDateTime("PublicationDate", "d MMMM, yyyy")</span>
+                    <span class="spot-title">@item.Fields.Title</span>
+                    <p>@Html.HtmlSanitize((string)item.Fields.Summary)</p>
+                    <a href="@navigateUrl">@Html.Resource("FullStory")</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@if (Model.ShowPager)
+{
+    @Html.Action("Index", "ContentPager", new
+    {
+        currentPage = Model.CurrentPage,
+                    totalPagesCount = Model.TotalPagesCount.Value,
+                    redirectUrlTemplate = ViewBag.RedirectPageUrlTemplate
+    })
+}
+
+            

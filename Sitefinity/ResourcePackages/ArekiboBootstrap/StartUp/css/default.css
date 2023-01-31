@@ -1,0 +1,68 @@
+﻿.holding-wrapper h1 {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 100;
+    color: #474747;
+    margin-top: 0;
+    font-size: 35px;
+    line-height: 53px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 640px) {
+    .holding-wrapper h1 {
+        font-size: 26px;
+        line-height: 34px;
+    }
+}
+
+.holding-wrapper h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #474747;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-top: 30px;
+    font-size: 15px;
+}
+/* iPad Portrait */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    .holding-wrapper h1 {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
+
+.holding-wrapper {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: auto;
+    height: 100vh;
+    background-image: url('img/bg_desktop.jpg');
+    text-align: center;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+    .holding-wrapper #logo {
+        background-image: url('img/logo.png');
+        height: 117px;
+        width: 315px;
+        background-repeat: no-repeat;
+        background-position: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 186px;
+    }
+/* iPhone5 Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    .holding-wrapper #logo {
+        margin-top: 100px;
+    }
+}

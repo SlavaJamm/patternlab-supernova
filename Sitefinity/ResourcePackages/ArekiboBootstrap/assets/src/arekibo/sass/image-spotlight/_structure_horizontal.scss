@@ -1,0 +1,90 @@
+.spotlight.horizontal {
+  .spot-tbl {
+    display: table;
+    width: 100%;
+    .spot-tbl-row {
+      display: table-row;
+      width: 100%;
+      @media screen and (max-width: $screen-xs) {
+        display: block;
+      }
+      .image-wrapper,
+      .spot-content {
+        display: table-cell;
+        vertical-align: top;
+        width: 50%;
+        min-width: 50%;
+        max-width: 50%;
+        @media screen and (max-width: $screen-xs) {
+          display: block;
+          width: 100%;
+          min-width: 100%;
+          max-width: none;
+        }
+      }
+      .spot-content {
+        padding: 10px 10px;
+        .spot-title,
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+  &.four-by-one {
+    .spot-tbl {
+      .spot-tbl-row {
+        .image-wrapper {
+          width: 75%;
+          min-width: 75%;
+          max-width: 75%;
+          @media screen and (max-width: $screen-xs) {
+            display: block;
+            width: 100%;
+            min-width: 100%;
+            max-width: none;
+          }
+        }
+        .spot-content {
+          width: 25%;
+          min-width: 25%;
+          max-width: 25%;
+          @media screen and (max-width: $screen-xs) {
+            display: block;
+            width: 100%;
+            min-width: 100%;
+            max-width: none;
+          }
+        }
+      }
+    }
+  }
+  &.three-by-one {
+    .spot-tbl {
+      .spot-tbl-row {
+        .image-wrapper {
+          width: 25%;
+          min-width: 25%;
+          max-width: 25%;
+          @media screen and (max-width: $screen-xs) {
+            display: block;
+            width: 100%;
+            min-width: 100%;
+            max-width: none;
+          }
+        }
+        .spot-content {
+          width: 75%;
+          min-width: 75%;
+          max-width: 75%;
+          @media screen and (max-width: $screen-xs) {
+            display: block;
+            width: 100%;
+            min-width: 100%;
+            max-width: none;
+          }
+        }
+      }
+    }
+  }
+}

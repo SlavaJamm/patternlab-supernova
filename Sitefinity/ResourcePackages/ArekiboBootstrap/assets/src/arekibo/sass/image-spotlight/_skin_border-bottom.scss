@@ -1,0 +1,11 @@
+.spotlight.color-border-bottom {
+  .spot-content {
+    border-bottom: 4px solid;
+    .spot-title {
+      color: $deep-sky-blue;
+      &:hover {
+        color: $deep-sky-blue;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@model Arekibo.Neptune.Widgets.Mvc.Models.LatestTweets.LatestTweetsViewModel
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+@Html.Script(Url.EmbeddedResource("Arekibo.Neptune.Widgets.Reference", "Arekibo.Neptune.Widgets.Mvc.Scripts.LatestTweets.twitter.post.fetcher.js"), true)
+@Html.Script(Url.EmbeddedResource("Arekibo.Neptune.Widgets.Reference", "Arekibo.Neptune.Widgets.Mvc.Scripts.LatestTweets.latesttweets.js"), true)
+<script type="text/javascript">
+    var pr = setInterval(function () {
+        if (window.jQuery) {
+            clearInterval(pr);
+            page_ready_latest_tweets();
+        }
+    }, 50);
+</script>
+<div id="@Model.ComponentId" class="latest-tweets clearfix carousel slide" data-ride="carousel">
+    <span class="bell-icon glyphicon glyphicon-bell"></span>
+    <h3>@Model.Heading</h3>
+    <div id="tw@(Model.ComponentId.Replace(Model.ComponentIdPrefix,""))" data-ScreenName="@Model.ScreenName" data-maxTweets="@Model.TweetCount"
+         class="tweets-carousel-wrapper"></div>
+    <ol class="carousel-indicators">
+    </ol>
+    @if (Model.IncludeControls)
+    {
+        <div aria-label="use the play and stop buttons to control the slide show">
+            <a class="play-control active play-pause" href="#@Model.ComponentId" role="button" aria-label="Play Carousel">
+                <span class="sr-only">Play</span><span class="glyphicon glyphicon-play"></span>
+            </a>
+            <a class="pause-control play-pause" href="#@Model.ComponentId" role="button" aria-label="Pause Carousel">
+                <span class="sr-only">Pause</span><span class="glyphicon glyphicon-pause"></span>
+            </a>
+        </div>
+    }
+</div>

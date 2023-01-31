@@ -1,0 +1,66 @@
+.spotlight.clip {
+  .image-wrapper {
+    overflow: hidden;
+    &:after {
+      content: "";
+      border-color: transparent $white transparent transparent;
+      border-style: solid;
+      border-top-width: 22px;
+      border-right-width: 560px; //should equals to image width
+      border-bottom-width: 0;
+      border-left-width: 0;
+      height: 0;
+      width: 30px;
+      position: absolute;
+      top: auto;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      @media screen and (max-width: $screen-xs) {
+        border-right-width: 480px; //should equals to max-width of container
+        border-top-width: 26px;
+      }
+    }
+  }
+  &.horizontal {
+    .image-wrapper {
+      &:after {
+        border-top-width: 225px;
+        border-right-width: 10px;
+        left: auto;
+      }
+    }
+  }
+}
+.spotlight.skew-y {
+  background-color: transparent;
+  .image-wrapper {
+    overflow: hidden;
+    img {
+      -webkit-transform: skewY(-10deg);
+      -moz-transform: skewY(-10deg);
+      -ms-transform: skewY(-10deg);
+      -o-transform: skewY(-10deg);
+      transform: skewY(-10deg);
+    }
+  }
+  .spot-content {
+    background-color: $white;
+  }
+}
+.spotlight.skew-x {
+  background-color: transparent;
+  .image-wrapper {
+    overflow: hidden;
+    img {
+      -webkit-transform: skewX(-10deg);
+      -moz-transform: skewX(-10deg);
+      -ms-transform: skewX(-10deg);
+      -o-transform: skewX(-10deg);
+      transform: skewX(-10deg);
+    }
+  }
+  .spot-content {
+    background-color: $white;
+  }
+}

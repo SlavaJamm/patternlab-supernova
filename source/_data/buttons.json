@@ -1,0 +1,12 @@
+{
+	"buttonTag" : true,
+    "tag" : "a",
+	"buttonText" : "Button",
+    "buttonLink" : "https://tse1.mm.bing.net/th?id=OIP.Blag-F1I9HmWBEf6jGLw5gHaFF&pid=Api&rs=1&c=1&qlt=95&w=170&h=117",
+    "modifier": "",
+    "buttonGroup" : [
+        {},
+        {},
+        {}
+    ]
+}

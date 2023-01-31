@@ -1,0 +1,10 @@
+//image zoom effect
+.spotlight.image-zoom-effect {
+  .image-wrapper {
+    overflow: hidden;
+    margin: 0.05%;
+    .overlay-text-box{
+      z-index: 2;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+﻿@model Telerik.Sitefinity.Frontend.Media.Mvc.Models.Document.DocumentViewModel
+
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+<div id="customized-audio" class="audio-player customized @Model.CssClass">
+    @if (!string.IsNullOrEmpty(Model.MediaUrl))
+    {
+        <audio id="customized-audio-player" class="customized-audio" src="@Model.MediaUrl" type="audio/@Model.Extension.ToLower().Replace(".","")" controls="controls"></audio>
+    }
+</div>

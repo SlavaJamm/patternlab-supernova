@@ -1,0 +1,32 @@
+@model Telerik.Sitefinity.Frontend.Mvc.Models.ContentListViewModel
+
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+@using Telerik.Sitefinity.Modules.Pages;
+@using Telerik.Sitefinity.Frontend.Lists.Mvc.Models;
+@{
+    const string headingFormat = "heading-{0}";
+    const string collapseFormat = "collapse-{0}";
+}
+@foreach (var item in Model.Items)
+{
+    int iIndex = 0;
+    var cId = "acc-" + ((Guid)item.Fields.Id).ToString();
+    <div class="accordion" id="@cId">
+        @foreach (var listItem in ((ListViewModel)item).ListItemViewModel.Items)
+        {
+            string headingId = string.Format(headingFormat, listItem.Fields.Id);
+            string collapseId = string.Format(collapseFormat, listItem.Fields.Id);
+            <div class="card">
+                <a id="@headingId" href="#@collapseId" class="p-style card-header@(iIndex==0 ? "" : "  collapsed")" data-toggle="collapse" data-target="#@collapseId" aria-expanded="true" aria-controls="@collapseId">
+                    @listItem.Fields.Title
+                </a>
+                <div id="@collapseId" class="collapse@(iIndex==0 ? " show" : "")" aria-labelledby="@headingId" data-parent="#@cId">
+                    <div class="card-body p-style">
+                        @Html.HtmlSanitize((string)listItem.Fields.Content)
+                    </div>
+                </div>
+            </div>
+            iIndex++;
+        }
+    </div>
+}

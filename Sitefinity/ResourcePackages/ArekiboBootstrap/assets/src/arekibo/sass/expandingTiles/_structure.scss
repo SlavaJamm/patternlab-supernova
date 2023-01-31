@@ -1,0 +1,143 @@
+.panel-group {
+  width: 100%;
+}
+
+.group {
+  @media screen and (max-width: $screen-xs) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  > div {
+    &:nth-of-type(2):not(.container):not(.ds-notes) {
+      padding-left: 0;
+    }
+    @media screen and (max-width: $screen-xs) {
+      display: flex;
+      width: 100%;
+      &:nth-of-type(1) {
+        order: 1;
+      }
+      &:nth-of-type(2) {
+        order: 3;
+        padding-left: 15px;
+      }
+      &:nth-of-type(3) {
+        order: 2;
+      }
+      &:nth-of-type(4) {
+        order: 4;
+      }
+      &.collapse {
+        display: none;
+      }
+      &.show {
+        display: flex;
+      }
+    }
+  }
+  .item {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0 22px;
+    position: relative;
+    &:before {
+      position: absolute;
+      width: 17px;
+      height: 11px;
+      margin: auto;
+      top: 26px;
+      right: 15px;
+      bottom: auto;
+      left: auto;
+      @media screen and (max-width: $screen-xs) {
+        top: 20px;
+        right: 0;
+      }
+    }
+    .image {
+      float: left;
+      width: 24%;
+      position: relative;
+      @media screen and (max-width: $screen-xs) {
+        width: 38%;
+      }
+      &:before {
+        display: block;
+        position: absolute;
+        width: 35px;
+        height: 17px;
+        margin: auto;
+        top: auto;
+        right: 0;
+        bottom: -31px;
+        left: 0;
+        z-index: 1;
+        @media screen and (max-width: $screen-xs) {
+          bottom: -23px;
+        }
+      }
+      > div {
+        display: block;
+        width: 131px;
+        height: 131px;
+        max-width: 131px;
+        max-height: 131px;
+        overflow: hidden;
+        @media screen and (max-width: $screen-xs) {
+          width: 108px;
+          height: 108px;
+          max-width: 108px;
+          max-height: 108px;
+        }
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    .item-body {
+      float: left;
+      width: 76%;
+      padding: 0 33px;
+      @media screen and (max-width: $screen-xs) {
+        width: 62%;
+        padding: 0 10px;
+      }
+      h4 {
+        padding: 0;
+        margin: 0;
+      }
+      span {
+        display: block;
+      }
+      .position {
+        padding: 0 0 10px;
+      }
+    }
+    &.collapsed {
+      .image:before {
+        display: none;
+      }
+    }
+  }
+  .details {
+    padding-left: 0;
+    @media screen and (max-width: $screen-xs) {
+      padding-right: 0;
+    }
+    .box {
+      display: block;
+      width: 100%;
+      padding: 37px 15px;
+      ul {
+        margin-bottom: 10px;
+      }
+    }
+
+  }
+  + .panel {
+    margin-top: 5px;
+  }
+}

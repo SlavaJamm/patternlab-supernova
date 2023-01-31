@@ -1,0 +1,39 @@
+.banner-content {
+  .cta {
+    text-align: center;
+    background: rgba(30, 32, 34, 0.6);
+    color: $white;
+
+    h2 {
+      color: $white;
+      text-transform: capitalize;
+      font-size: 4rem;
+      font-weight: 400;
+      line-height: 54px;
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 2.5rem;
+      }
+
+      span {
+        text-transform: uppercase;
+        font-size: 1.125rem;
+        font-weight: 400;
+
+        @media screen and (max-width: $screen-xs) {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    p {
+      font-size: 1.125rem;
+      line-height: 30px;
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 0.8125rem;
+        line-height: 22px;
+      }
+    }
+  }
+}

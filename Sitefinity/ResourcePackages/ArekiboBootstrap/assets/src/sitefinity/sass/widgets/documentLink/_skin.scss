@@ -1,0 +1,262 @@
+.audio-player {
+  &.customized {
+    position: relative;
+    margin: 0 auto;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: $lavender;
+    width: 100%;
+    padding: 15px 25px;
+    height: auto;
+    @media screen and (max-width: $screen-xs) {
+      padding: 10px 10px 25px;
+    }
+    div {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .mejs-container {
+      &.mejs-audio {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+    .mejs-inner {
+      width: 100% !important;
+    }
+    /* play/pause control */
+    .mejs-controls {
+      width: 100% !important;
+      @media screen and (max-width: $screen-xs) {
+        display: flex !important;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      // Controls
+      .play,
+      .pause,
+      .reset {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        border: 1px solid $lavender;
+        background-color: $white;
+        border-radius: 20px;
+        width: 34px;
+        height: 34px;
+        margin: 0 8px;
+        font-size: 0;
+        @media screen and (max-width: $screen-xs) {
+          margin: 0 5px;
+        }
+        &:before {
+          @include use-glyphicon;
+          position: absolute;
+          display: inline-block;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          @include x-rem("font-size", 16px);
+          width: 15px;
+          height: 15px;
+          color: $deep-sky-blue;
+        }
+        &:focus,
+        &:active {
+          border: 1px solid $ny-pink;
+        }
+      }
+      .play,
+      .pause {
+        &.active {
+          border: 1px solid $deep-sky-blue;
+        }
+      }
+      .play {
+        margin-left: 0;
+        &:before {
+          content: "\e072";
+        }
+      }
+      .pause {
+        &:before {
+          content: "\e073";
+        }
+      }
+      .reset {
+        &:before {
+          content: "\e031";
+        }
+      }
+      .mejs-button {
+        button {
+          position: relative;
+          top: 0;
+          right: 0;
+        }
+      }
+      div.mejs-horizontal-volume-slider {
+        position: relative;
+        top: 0;
+        right: 0;
+      }
+      /* time scrubber bar */
+      .mejs-time-rail {
+        //position: relative;
+        //display: inline-block;
+        margin-left: 25px;
+        margin-right: 25px;
+        min-height: 12px;
+        @media screen and (max-width: $screen-xs) {
+          position: absolute;
+          bottom: -25px;
+          width: 100% !important;
+          left: 0;
+          margin: 0;
+        }
+        span {
+          position: absolute;
+          display: block;
+          width: 380px;
+          top: 40px;
+          left: 55px;
+          cursor: pointer;
+          -webkit-border-radius: 0 0 2px 2px;
+          -moz-border-radius: 0 0 2px 2px;
+          border-radius: 0 0 2px 2px;
+          height: 10px;
+        }
+        .mejs-time-total {
+          background: $white;
+          border-radius: 20px;
+          border: 1px solid $lavender;
+          min-height: 12px;
+          width: 100% !important;
+          top: 0;
+          left: 0;
+        }
+        .mejs-time-loaded {
+          top: 0;
+          left: 0;
+          width: 0;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+          background: $deep-sky-blue;
+          display: none;
+        }
+        .mejs-time-current {
+          top: 0;
+          width: 0;
+          background: $deep-sky-blue;
+          border: 2px solid $white;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          left: 2px;
+        }
+        .mejs-time-handle {
+          display: none;
+        }
+        /* time progress tooltip */
+        .mejs-time-float {
+          position: absolute;
+          display: none;
+          width: 33px;
+          height: 23px;
+          top: -26px;
+          margin-left: -17px;
+          z-index: 9999;
+          background: url("imgs/audio-player/time-box.png");
+        }
+        .mejs-time-float-current {
+          width: 33px;
+          display: block;
+          left: 0;
+          top: 4px;
+          @include x-rem("font-size", 10px);
+          font-weight: bold;
+          color: $dark-gray;
+          text-align: center;
+          z-index: 9999;
+        }
+      }
+    }
+    /* Time */
+    .mejs-time {
+      @media screen and (max-width: $screen-xs) {
+        display: flex;
+      }
+      span {
+        @include x-rem("font-size", 14px);
+        @media screen and (max-width: $screen-xs) {
+          @include x-rem("font-size", 10px);
+        }
+      }
+    }
+    /* volume slider  */
+    .vol-icon {
+      margin-left: 30px !important;
+      @media screen and (max-width: $screen-xs) {
+        margin-left: 0 !important;
+      }
+      span {
+        display: inline-block;
+        width: 5px;
+        height: 15px;
+        background: $silver;
+        border-radius: 5px;
+        margin-right: 2px;
+        vertical-align: middle;
+        &.active {
+          background: $dark-gray;
+        }
+      }
+      a {
+        &:focus {
+          border: 1px solid $ny-pink;
+        }
+      }
+      .vol-low,
+      .vol-up {
+        position: relative;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        font-size: 0;
+        color: $dark-gray;
+        vertical-align: middle;
+        &:before {
+          position: absolute;
+          width: 15px;
+          height: 12px;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          display: inline-block;
+          @include use-glyphicon;
+          @include x-rem("font-size", 12px);
+        }
+      }
+      .vol-up {
+        margin-left: 5px;
+        &:before {
+          content: "\e038";
+        }
+      }
+      .vol-low {
+        &:before {
+          content: "\e037";
+        }
+      }
+    }
+  }
+}

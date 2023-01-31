@@ -1,0 +1,11 @@
+@model Telerik.Sitefinity.Frontend.Mvc.Models.ContentDetailsViewModel
+
+@{
+    var currentPageUrl = HttpContext.Current.Request.Url.AbsoluteUri;
+    var itemUrl=@Model.Item.Fields.UrlName.ToString();
+
+}
+@if(currentPageUrl.Contains(itemUrl))
+{
+    throw new HttpException(404, "Page Not Found");
+}

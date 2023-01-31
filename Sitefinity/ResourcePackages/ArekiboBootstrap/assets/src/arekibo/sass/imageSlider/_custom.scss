@@ -1,0 +1,264 @@
+.owl-carousel.owl-loaded {
+  @media screen and (min-width: $screen-sm) {
+    min-height: 675px;
+  }
+  @media screen and (max-width: $screen-xs) {
+    width: 100%;
+    margin: 0 auto 0;
+    min-height: 370px;
+  }
+  .owl-stage-outer {
+    @media screen and (min-width: $screen-sm) {
+      padding-bottom: 230px;
+      margin-left: 0;
+      margin-right: 0;
+      z-index: -1;
+    }
+    .owl-stage {
+      @media screen and (min-width: $screen-sm) {
+        display: flex;
+        height: 455px;
+        min-height: 455px;
+      }
+      .owl-item {
+        @media screen and (min-width: $screen-sm) {
+          width: 537px !important;
+          min-width: 537px !important;
+          max-width: 537px !important;
+
+        }
+        .image-wrapper {
+          transition: all 0.5s ease 0s;
+          @-moz-document url-prefix() {
+            -moz-transition: all 0.2s ease 0s;
+          }
+        }
+        img {
+          @media screen and (min-width: $screen-sm) {
+            margin-top: 65px;
+          }
+        }
+        .title-caption-container {
+          //display: none;
+          opacity: 0;
+          margin-top: 100px;
+          padding: 10px 0 0 0;
+          color: $dark-gray;
+          @media screen and (min-width: $screen-sm) {
+            width: 750px;
+            margin-left: -106px;
+            min-height: 166px;
+          }
+          @media screen and (max-width: $screen-xs) {
+            margin-top: 0;
+          }
+          h3 {
+            margin-top: 12px;
+            @include fixLines(1, 26px);
+            margin-bottom: 13px;
+            @media screen and (max-width: $screen-xs) {
+              margin-top: 3px;
+            }
+          }
+          p {
+            @include x-rem(font-size, 16px);
+            @include fixLines(2, 22px);
+            margin-bottom: 22px;
+          }
+          .btn-styled {
+            position: relative;
+            min-width: 165px;
+            border-radius: 50px;
+            background-color: $deep-sky-blue;
+            color: $white;
+            padding: 14px 10px 14px 40px;
+            @include x-rem(font-size, 16px);
+            -webkit-transition: all 0.1s ease-in-out;
+            -moz-transition: all 0.1s ease-in-out;
+            -ms-transition: all 0.1s ease-in-out;
+            -o-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
+            border: 2px solid transparent;
+            display: none;
+            &:before {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: auto;
+              bottom: 0;
+              left: 5px;
+              margin: auto;
+              width: 35px;
+              height: 35px;
+              background-color: $white;
+              border-radius: 20px;
+            }
+            &:after {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: auto;
+              bottom: 0;
+              left: 17px;
+              margin: auto;
+              /*background: url("https://www.electricireland.ie/css/home/png-sprite.png") no-repeat;
+              background-position: -20px -248px;*/
+              //@include svg-dropdown-gray;
+              //overflow: hidden;
+              //text-indent: -9999px;
+              //text-align: left;
+              background: url("svg/sprite.svg") 86.66666666666667% 79.59183673469387% no-repeat;
+              width: 10px;
+              height: 6px;
+              transform: rotate(-90deg);
+            }
+            &:hover,
+            &:focus,
+            &:active {
+              background-color: $white;
+              border-color: $border-color;
+              color: $deep-sky-blue;
+              &:before {
+                background-color: $deep-sky-blue;
+              }
+            }
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+        &.active {
+          @media screen and (min-width: $screen-sm) {
+            transition: all 0.8s ease 0s;
+            &.center {
+              z-index: 2;
+              background-color: transparent !important;
+              .image-wrapper {
+                transform: scale(1.39665,1.3967);
+              }
+            }
+          }
+          &.center {
+            .title-caption-container {
+              @media screen and (max-width: $screen-xs) {
+                opacity: 1;
+                margin-top: 0;
+                padding: 20px 0 0;
+              }
+              .btn-styled {
+                display: inline-block;
+              }
+            }
+            &.current-item {
+              .title-caption-container {
+                //display: block;
+                opacity: 1;
+                @media screen and (min-width: $screen-sm) {
+                  -webkit-transition-timing-function: ease-in-out;
+                  -o-transition-timing-function: ease-in-out;
+                  transition-timing-function: ease-in-out;
+
+                  -webkit-transition-duration: 0.31s;
+                  -o-transition-duration: 0.31s;
+                  transition-duration: 0.31s;
+                }
+                @media screen and (max-width: $screen-xs) {
+                  margin-top: 0;
+                  padding-bottom: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .owl-nav {
+    width: 750px;
+    height: 55px;
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 200px;//0;
+    right: 0;
+    bottom: auto;//230px;
+    left: 0;
+    @media screen and (min-width: $screen-sm) and (max-width: 1920px) {
+      left: 0;
+    }
+    @media screen and (max-width: $screen-xs) {
+      width: 90%;
+      height: 40px;
+      //bottom: 225px;
+      top: 18%;
+      z-index: 2;
+    }
+    [class*="owl-"] {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: block;
+      margin: auto;
+      background-color: $deep-sky-blue !important;
+      box-shadow: 0 0 20px 0 rgba(196, 196, 196, 0.46);
+      transition: all 0.3s ease-in-out;
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+      }
+      @media screen and (max-width: $screen-xs) {
+        margin: 0;
+        width: 40px;
+        height: 40px;
+      }
+      span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        color: transparent;
+        @extend .glyphicon-chevron-left;
+        &:before {
+          position: absolute !important;
+          top: 0 !important;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          @extend .glyphicon;
+          color: $white;
+          margin: auto;
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+    .owl-prev {
+      right: auto;
+      left: 22px;
+      @media screen and (max-width: $screen-xs) {
+        left: 0;
+      }
+    }
+    .owl-next {
+      right: 22px;
+      left: auto;
+      @media screen and (max-width: $screen-xs) {
+        right: 0;
+      }
+    }
+  }
+  .owl-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 170px;
+    width: 100%;
+    @media screen and (max-width: $screen-xs) {
+      bottom: 210px;
+      display: none;
+    }
+  }
+}

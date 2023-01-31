@@ -1,0 +1,72 @@
+@model Telerik.Sitefinity.Frontend.Mvc.Models.ContentDetailsViewModel
+@using Telerik.Sitefinity.Modules.Libraries
+@{ 
+
+    var linkUrl = "";
+    
+    var extString = "false";
+    if (Model.Item.Fields.UseExternalLink)
+    {
+        extString = "true";
+    }
+    else
+    {
+        extString = "false";
+
+    }
+    bool isExt = bool.Parse(extString);
+    if (isExt)
+    {
+        if (Model.Item.Fields.ExternalUrl != null)
+        {
+            linkUrl = Model.Item.Fields.ExternalUrl.ToString();
+        }
+    }
+    else
+    {
+        if (Model.Item.Fields.LinkedPage != null)
+        {
+            linkUrl = Model.Item.Fields.LinkedPage.DefaultUrl.ToString();
+        }
+    }
+    var epString = "false";
+    if (Model.Item.Fields.EnablePrimaryAction)
+    {
+        epString = "true";
+    }
+    else
+    {
+        epString = "false";
+    }
+    bool enableAction = bool.Parse(epString);
+}
+<div class="video-banner">
+    <div class="container content-box-wrapper">
+        <div class="content-box">
+            <span class="h2 h-style">@Model.Item.Fields.Title</span>
+            <p>
+                @Model.Item.Fields.Description
+            </p>
+            @if (enableAction)
+            {
+                <a class="btn btn-primary" href="@linkUrl">@Model.Item.Fields.LinkText</a>
+            }
+        </div>
+    </div>
+    <div class="video-container">
+        <div class="d-none  d-sm-block">
+            <video autoplay loop muted playsinline>
+                <source src="@MediaContentExtensions.ResolveMediaUrl(Model.Item.Fields.SelectedVideo.DataItem)" type="video/@Model.Item.Fields.SelectedVideo.Fields.Extension.ToLower().Replace(".","")" />
+                Your browser does not support the video tag. I suggest you upgrade your browser.
+            </video>
+            <div class="centered-image">
+                <img data-src="@MediaContentExtensions.ResolveMediaUrl(Model.Item.Fields.DesktopImage.DataItem)" class="poster lazyload" alt=""
+                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+            </div> 
+        </div>
+        <div class="d-block d-sm-none centered-image">
+            <img data-src="@MediaContentExtensions.ResolveMediaUrl(Model.Item.Fields.MobileImage.DataItem)" class="poster lazyload" alt=""
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+        </div>
+    </div>
+</div>

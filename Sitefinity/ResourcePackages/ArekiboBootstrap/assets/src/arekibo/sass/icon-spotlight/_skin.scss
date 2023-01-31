@@ -1,0 +1,107 @@
+@import "sprite";
+
+.icon-cta-spotlight {
+  text-align: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: $white;
+  transition: 0.5s;
+  &:hover {
+    text-decoration: none;
+  }
+  .title {
+    color: $link-color;
+    @include x-rem(font-size, 18px);
+    font-weight: bold;
+    line-height: 20px;
+    margin-bottom: 5px;
+    @media screen and (max-width: $screen-xs) {
+      text-align: left;
+      @include x-rem(font-size, 17px);
+    }
+  }
+  &:focus,
+  &:active,
+  &:hover {
+    box-shadow: none;
+    background-color: $white-smoke;
+    .title {
+      color: $link-hover-color;
+    }
+  }
+  .subtitle {
+    color: $body-color;
+    @include x-rem(font-size, 15px);
+    line-height: 18px;
+    text-align: center;
+    @media screen and (max-width: $screen-xs) {
+      text-align: left;
+      @include x-rem(font-size, 13px);
+    }
+  }
+  &:after {
+    @extend .svg-chevron;
+  }
+  @media screen and (max-width: $screen-xs) {
+    text-align: left;
+    &:after {
+      content: "";
+    }
+  }
+  &:before {
+    content: "";
+  }
+  &.active {
+    background: $silver;
+    box-shadow: none;
+    .title {
+      color: $link-hover-color;
+    }
+  }
+  &.fast-track {
+    &:before {
+      @extend .svg-services_fast_track;
+    }
+    &.active {
+      &:before {
+        @extend .svg-services_fast_track-dark;
+      }
+    }
+  }
+  &.parking {
+    &:before {
+      @extend .svg-services_parking;
+    }
+  }
+  &.lounges {
+    &:before {
+      @extend .svg-services_lounges;
+    }
+    &.active {
+      &:before {
+        @extend .svg-services_lounges-dark;
+      }
+    }
+  }
+  &.platinum {
+    &:before {
+      @extend .svg-services_platinum_services;
+    }
+    &.active {
+      &:before {
+        @extend .svg-services_platinum_services-dark;
+      }
+    }
+  }
+  &.aiport-club {
+    &:before {
+      @extend .svg-services_airport_club;
+    }
+    &.active {
+      &:before {
+        @extend .svg-services_airport_club-dark;
+      }
+    }
+  }
+}

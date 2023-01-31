@@ -1,0 +1,23 @@
+@model Telerik.Sitefinity.Frontend.Card.Mvc.Models.Card.CardViewModel
+
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+
+<div class="spotlight color-border-bottom fixed-lines @Model.CssClass">
+    @if (!string.IsNullOrEmpty(Model.SelectedSizeUrl))
+    {
+        <img data-src="@Model.SelectedSizeUrl" alt="" class=" lazyload"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+    }
+    <div class="spot-content">
+        @if (!string.IsNullOrEmpty(Model.ActionName))
+        {
+            <a class="spot-title" href="@Html.UrlSanitize(Model.ActionUrl)">
+                <span>@Model.ActionName</span>
+            </a>
+        }
+        @if (!string.IsNullOrEmpty(Model.Description))
+        {
+            <p>@Html.HtmlSanitize(Model.Description)</p>
+        }
+    </div>
+</div>

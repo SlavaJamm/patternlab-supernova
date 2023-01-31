@@ -1,0 +1,125 @@
+.icon-cta-spotlight {
+  padding: 75px 10px 35px 10px;
+  display: block;
+  .title {
+    display: block;
+  }
+  .subtitle {
+    display: block;
+    margin-bottom: 0;
+  }
+  @media screen and (max-width: $screen-xs) {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding: 15px 30px 17px 65px !important;
+    margin-bottom: 10px;
+    &:after {
+      display: inline-block;
+      position: absolute;
+      right: 15px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+  &:before {
+    display: inline-block;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    @media screen and (max-width: $screen-xs) {
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      right: auto;
+    }
+  }
+  &.fast-track {
+    @media screen and (max-width: $screen-xs) {
+      margin-top: 7px;
+    }
+  }
+  &.lounges {
+    &:before {
+      top: 18px;
+      @media screen and (max-width: $screen-xs) {
+        top: 0;
+      }
+    }
+  }
+  &.platinum {
+    &:before {
+      top: 18px;
+      @media screen and (max-width: $screen-xs) {
+        top: 0;
+      }
+    }
+  }
+  &.aiport-club {
+    &:before {
+      @media screen and (max-width: $screen-xs) {
+        top: 0;
+      }
+    }
+  }
+}
+/*.forms-tabs {
+  .icon-cta-spotlight {
+    &.parking {
+      @media screen and (max-width: $screen-xs) {
+        background-color: $link-hover-color;
+        color: $white;
+        padding: 20px 30px 22px 65px;
+        &.open {
+          &:after {
+            background: url("svg/sprite.svg") 99.06542056074767% 93.33333333333333% no-repeat;
+            width: 15px;
+            height: 10px;
+          }
+        }
+
+        &:after {
+          @media screen and (max-width: $screen-xs) {
+            background: url("svg/sprite.svg") 65.25822% 66.09195% no-repeat;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+      .mobile-title {
+        display: none;
+        @media screen and (max-width: $screen-xs) {
+          display: block;
+          text-transform: uppercase;
+          @include x-rem(font-size, 14px);
+          line-height: 17px;
+          margin-top: 5px;
+        }
+      }
+      .title {
+        @media screen and (max-width: $screen-xs) {
+          display: none;
+        }
+      }
+      .subtitle {
+        @media screen and (max-width: $screen-xs) {
+          display: none;
+        }
+      }
+      &.active {
+        &:before {
+          @extend .svg-services_parking-dark;
+          @media screen and (max-width: $screen-xs) {
+            background: url("svg/sprite.svg") 20.91837% 72.78481% no-repeat;
+            width: 33px;
+            height: 32px;
+            transform: scale(0.8);
+          }
+        }
+      }
+    }
+  }
+}*/

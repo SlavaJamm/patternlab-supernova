@@ -1,0 +1,17 @@
+@model Arekibo.Neptune.Widgets.Mvc.Models.Banner.BannerViewModel
+<div class="container smaller">
+    <div class="row hero-content">
+        <div class="col-sm-7">
+            <h1>@Model.Heading</h1>
+            <p>@Model.Description</p>
+            <a href="@Model.ActionModel.PrimaryActionUrl" class="btn btn-primary">@Model.ActionModel.PrimaryActionName</a>
+        </div>
+    </div>
+</div>
+<picture class="centered-image">
+    <!--[if IE 9]><video style="display: none;"><![endif]-->
+    <source srcset="@Model.ImageModel.DesktopImageUrl" media="(min-width: 640px)">
+    <source srcset="@Model.ImageModel.MobileImageUrl" media="(max-width: 639px)">
+    <!--[if IE 9]></video><![endif]-->
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="@Model.ImageModel.ImageAlternativeText">
+</picture>SplitCamelCase

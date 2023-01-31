@@ -1,0 +1,12 @@
+// hide label(s) and description tag because we will show only title for this class
+.spotlight.spotlight-minimal {
+  .spot-content {
+    .spot-title {
+      margin: 0;
+    }
+    p,
+    .spot-label {
+      display: none !important;
+    }
+  }
+}

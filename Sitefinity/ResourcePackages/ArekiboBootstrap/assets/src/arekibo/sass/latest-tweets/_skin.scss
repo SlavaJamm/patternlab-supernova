@@ -1,0 +1,42 @@
+.latest-tweets {
+  border-radius: 4px;
+  background-color: $dim-gray;
+  color: $white;
+  h3 {
+    color: $white;
+  }
+  .play-pause {
+    background: none;
+    background-color: $dark-gray;
+    color: $white;
+    text-decoration: none;
+    border-radius: 3px;
+    &:hover,
+    &.active {
+      color: $white; // Hover color is missing
+    }
+  }
+  .carousel-inner {
+    .carousel-item {
+      a {
+        color: $white;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .carousel-indicators {
+    text-align: center;
+    list-style: none;
+    li:focus {
+      box-shadow: 0 0 2px 1px $white;
+      outline: 0;
+    }
+    button {
+      border: 2px transparent solid;
+      background: transparent;
+      border-radius: 50%;
+    }
+  }
+}
